@@ -1,2 +1,2 @@
-# instagram
+# Instagram
 Clone do aplicativo Instagram
