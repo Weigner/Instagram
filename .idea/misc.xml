@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_comment.xml" value="0.227" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_heart.xml" value="0.227" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/app_bar_main.xml" value="0.3494791666666667" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/content_main.xml" value="0.35052083333333334" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_login.xml" value="0.35052083333333334" />
       </map>
     </option>
