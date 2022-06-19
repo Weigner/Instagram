@@ -30,9 +30,9 @@
             style="@style/Theme.Instagram.InputEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:hintEnabled="false"
             app:layout_constraintBottom_toTopOf="@id/il_password"
             app:layout_constraintEnd_toEndOf="parent"
-            app:hintEnabled="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_logo"
             app:layout_constraintVertical_chainStyle="packed">
@@ -69,13 +69,12 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.example.instagram.LoadingButton
             android:id="@+id/bt_enter"
-            style="@style/Theme.Instagram.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/text_bt_enter"
+            app:text="@string/text_bt_enter"
             app:layout_constraintBottom_toTopOf="@id/frame_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
