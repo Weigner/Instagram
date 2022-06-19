@@ -2,12 +2,8 @@ package com.example.instagram
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.instagram.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
@@ -35,12 +31,29 @@ class MainActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfig)*/
-
         navView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            title = destination.label
+            binding.appBarMain.toolbar.title = title
+
+            // o método abaixo serve para incluir ou remover a navegação segundo o fragment carregado
+            when (destination.id) {
+                R.id.nav_login -> {
+                    supportActionBar?.hide()
+                    binding.appBarMain.toolbar.navigationIcon = null
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+                else -> {
+                    supportActionBar?.show()
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                }
+            }
+        }
     }
 
-   /* override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
-    }*/
+    /* override fun onSupportNavigateUp(): Boolean {
+         val navController = findNavController(R.id.nav_host_fragment_content_main)
+         return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
+     }*/
 }
