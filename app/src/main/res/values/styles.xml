@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.Instagram.InputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+
     <style name="Theme.Instagram.EditText">
         <item name="android:padding">16dp</item>
         <item name="android:background">@drawable/edit_text_background</item>
