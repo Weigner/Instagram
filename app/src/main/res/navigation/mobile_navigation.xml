@@ -3,16 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_register_email">
+    app:startDestination="@id/nav_register_name_password">
 
     <fragment
         android:id="@+id/nav_login"
         android:name="com.example.instagram.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+
     <fragment
         android:id="@+id/nav_register_email"
         android:name="com.example.instagram.register.RegisterEmailFragment"
-        tools:layout="@layout/fragment_register_email"
-        android:label="fragment_register_email" />
+        android:label="fragment_register_email"
+        tools:layout="@layout/fragment_register_email" />
+
+    <fragment
+        android:id="@+id/nav_register_name_password"
+        android:name="com.example.instagram.register.RegisterNamePasswordFragment"
+        android:label="RegisterNamePasswordFragment"
+        tools:layout="@layout/fragment_register_name_password" />
 </navigation>

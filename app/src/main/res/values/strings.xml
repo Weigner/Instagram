@@ -10,4 +10,10 @@
 
     <string name="text_bt_next">Avançar</string>
     <string name="already_has_account">Já tem uma conta? <b><font color="#002b57">Faça login.</font></b></string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_password_confirm">Confirmar senha</string>
+    <string name="text_bt_continue">Continuar</string>
+
+
+
 </resources>
