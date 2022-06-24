@@ -1,4 +1,4 @@
-package com.example.instagram.login.view
+package com.example.instagram.login
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.instagram.MainActivity
-import com.example.instagram.R
 import com.example.instagram.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
