@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity() {
                     binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
+                R.id.nav_register_upload_photo -> {
+                    supportActionBar?.hide()
+                    binding.appBarMain.toolbar.navigationIcon = null
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
                 else -> {
                     supportActionBar?.show()
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
