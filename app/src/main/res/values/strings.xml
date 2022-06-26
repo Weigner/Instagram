@@ -19,6 +19,9 @@
     <string name="photo_register_subtitle">Adicione uma foto do perfil para que seus amigos saibam que é você.</string>
     <string name="jump">Pular</string>
     <string name="add_photo">Adicionar uma foto</string>
+    <string name="define_photo_profile">Definir uma foto do perfil</string>
+    <string name="take_picture">Tirar foto</string>
+    <string name="search_gallery">Escolher na Biblioteca</string>
 
 
 
