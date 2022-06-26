@@ -2,6 +2,7 @@ package com.example.instagram
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -43,21 +44,25 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.hide()
                     binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_email -> {
                     supportActionBar?.hide()
                     binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_name_password -> {
                     supportActionBar?.hide()
                     binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_upload_photo -> {
                     supportActionBar?.hide()
                     binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 else -> {
                     supportActionBar?.show()
