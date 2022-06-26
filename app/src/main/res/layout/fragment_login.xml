@@ -69,7 +69,7 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.example.instagram.LoadingButton
+        <com.example.instagram.util.LoadingButton
             android:id="@+id/bt_enter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

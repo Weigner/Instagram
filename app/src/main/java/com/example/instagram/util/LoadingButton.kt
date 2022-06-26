@@ -1,4 +1,4 @@
-package com.example.instagram
+package com.example.instagram.util
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
+import com.example.instagram.R
 
 class LoadingButton : FrameLayout {
 

@@ -1,4 +1,4 @@
-package com.example.instagram.commom
+package com.example.instagram.util
 
 import android.app.Dialog
 import android.content.Context
