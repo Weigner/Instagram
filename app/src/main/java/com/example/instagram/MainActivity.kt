@@ -64,6 +64,12 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
+                R.id.nav_profile -> {
+                    supportActionBar?.hide()
+                    binding.appBarMain.toolbar.navigationIcon = null
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+                }
                 else -> {
                     supportActionBar?.show()
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)

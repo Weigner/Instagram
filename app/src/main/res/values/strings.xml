@@ -24,6 +24,10 @@
     <string name="search_gallery">Escolher na Biblioteca</string>
     <string name="home">Home</string>
     <string name="search">Pesquisar</string>
+    <string name="text_bt_edit_profile">Editar perfil</string>
+    <string name="posts">publicações</string>
+    <string name="followers">seguidores</string>
+    <string name="following">seguindo</string>
 
 
 

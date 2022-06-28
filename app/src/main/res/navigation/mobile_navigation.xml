@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_register_upload_photo">
+    app:startDestination="@id/nav_profile">
 
     <fragment
         android:id="@+id/nav_login"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_login_to_nav_register_email"
             app:destination="@id/nav_register_email" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_profile"
+            app:destination="@id/nav_profile" />
     </fragment>
 
     <fragment
@@ -39,7 +42,7 @@
         android:id="@+id/nav_register_upload_photo"
         android:name="com.example.instagram.register.RegisterUploadPhotoFragment"
         android:label="RegisterUploadPhotoFragment"
-        tools:layout="@layout/fragment_register_upload_photo" >
+        tools:layout="@layout/fragment_register_upload_photo">
         <action
             android:id="@+id/action_nav_register_upload_photo_to_nav_register_welcome"
             app:destination="@id/nav_register_welcome" />
@@ -49,6 +52,11 @@
         android:id="@+id/nav_register_welcome"
         android:name="com.example.instagram.register.RegisterWelcomeFragment"
         android:label="RegisterWelcomeFragment"
-        tools:layout="@layout/fragment_register_welcome" >
-    </fragment>
+        tools:layout="@layout/fragment_register_welcome" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.instagram.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
