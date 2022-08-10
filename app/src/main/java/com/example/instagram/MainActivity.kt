@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.instagram.databinding.ActivityMainBinding
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var appBarConfig: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,8 +26,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         //val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
 
         /*appBarConfig = AppBarConfiguration(
             setOf(
@@ -33,45 +34,55 @@ class MainActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfig)*/
-        navView.setupWithNavController(navController)
-
         // cor status bar
         window.statusBarColor = getColor(R.color.white)
-        window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+        window.insetsController?.setSystemBarsAppearance(
+            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+        )
+
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_insta_camera)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = ""
+
+        configNavigation()
+    }
+
+    private fun configNavigation() {
+        val navView: NavigationView = binding.navView
+        navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            title = destination.label
+            //title = destination.label
+            //title = ""
             binding.appBarMain.toolbar.title = title
 
             // o método abaixo serve para incluir ou remover a navegação segundo o fragment carregado
             when (destination.id) {
                 R.id.nav_login -> {
                     supportActionBar?.hide()
-                    binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_email -> {
                     supportActionBar?.hide()
-                    binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_name_password -> {
                     supportActionBar?.hide()
-                    binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_upload_photo -> {
                     supportActionBar?.hide()
-                    binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_profile -> {
                     supportActionBar?.show()
-                    binding.appBarMain.toolbar.navigationIcon = null
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
                 }
@@ -81,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     /* override fun onSupportNavigateUp(): Boolean {
