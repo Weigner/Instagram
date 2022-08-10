@@ -3,6 +3,7 @@ package com.example.instagram
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsetsController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfig)*/
         navView.setupWithNavController(navController)
+
+        // cor status bar
+        window.statusBarColor = getColor(R.color.white)
+        window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             title = destination.label
