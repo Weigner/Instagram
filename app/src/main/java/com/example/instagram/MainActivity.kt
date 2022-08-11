@@ -1,5 +1,6 @@
 package com.example.instagram
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -35,11 +36,13 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfig)*/
         // cor status bar
-        window.statusBarColor = getColor(R.color.white)
-        window.insetsController?.setSystemBarsAppearance(
-            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.statusBarColor = getColor(R.color.white)
+            window.insetsController?.setSystemBarsAppearance(
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+            )
+        }
 
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_insta_camera)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
