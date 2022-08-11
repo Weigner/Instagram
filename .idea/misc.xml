@@ -5,13 +5,30 @@
       <map>
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/edit_text_background.xml" value="0.351" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_facebook.xml" value="0.352" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_add.xml" value="0.2425" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_comment.xml" value="0.227" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_heart.xml" value="0.227" />
-        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
-        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/app_bar_main.xml" value="0.3494791666666667" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/ic_insta_profile.xml" value="0.1" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/drawable/top_bottom_border.xml" value="0.351" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/app_bar_main.xml" value="0.33" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/button_loading.xml" value="0.3494791666666667" />
-        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/content_main.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/dialog_custom.xml" value="0.3494791666666667" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_home.xml" value="0.375" />
         <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_register_email.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_register_upload_photo.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_register_welcome.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/fragment_search.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/item_post.xml" value="0.375" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/item_profile_grid.xml" value="0.3494791666666667" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/item_search.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/layout/item_user.xml" value="0.25462962962962965" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/menu/menu_bottom_nav.xml" value="0.35052083333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/menu/menu_profile.xml" value="0.37395833333333334" />
+        <entry key="..\:/workspace/GitHub/instagram/app/src/main/res/menu/menu_profile_bottom_nav.xml" value="0.3494791666666667" />
       </map>
     </option>
   </component>
