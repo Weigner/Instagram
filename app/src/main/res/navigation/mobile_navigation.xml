@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_camera">
+    app:startDestination="@id/nav_gallery">
 
     <fragment
         android:id="@+id/nav_login"
@@ -75,4 +75,9 @@
         android:name="com.example.instagram.camera.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.instagram.camera.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" />
 </navigation>
