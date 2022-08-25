@@ -89,6 +89,11 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
                 }
+                R.id.nav_camera -> {
+                    supportActionBar?.show()
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+                }
                 else -> {
                     supportActionBar?.show()
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
