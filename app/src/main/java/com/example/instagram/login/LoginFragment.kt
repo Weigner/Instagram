@@ -7,7 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
+import com.example.instagram.R
 import com.example.instagram.databinding.FragmentLoginBinding
+import com.example.instagram.login.data.FakeDataSource
+import com.example.instagram.login.data.LoginRepository
 import com.example.instagram.util.TxtWatcher
 
 class LoginFragment : Fragment(), Login.View {
@@ -27,7 +33,8 @@ class LoginFragment : Fragment(), Login.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter = LoginPresenter(this)
+        val repository = LoginRepository(FakeDataSource())
+        presenter = LoginPresenter(this, repository)
         setListener()
     }
 
@@ -56,12 +63,13 @@ class LoginFragment : Fragment(), Login.View {
 
             btEnter.setOnClickListener {
                 presenter.login(etEmail.text.toString(), etPassword.text.toString())
-                //simulando um delay de requisição no backend
-                /*Handler(Looper.getMainLooper()).postDelayed({
-                    btEnter.showProgress(false)
-                }, 5000)*/
             }
         }
+    }
+
+    private fun goHome() {
+        findNavController().navigate(R.id.action_nav_login_to_nav_home)
+
     }
 
     override fun showProgress(enabled: Boolean) {
@@ -77,10 +85,10 @@ class LoginFragment : Fragment(), Login.View {
     }
 
     override fun onUserAuthenticated() {
-        //TODO("ir para a tela principal")
+        goHome()
     }
 
-    override fun onUserUnauthorized() {
-        //TODO("Mostrar um alerta")
+    override fun onUserUnauthorized(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 }

@@ -2,21 +2,48 @@ package com.example.instagram.login
 
 import android.util.Patterns
 import com.example.instagram.R
+import com.example.instagram.login.data.LoginCallback
+import com.example.instagram.login.data.LoginRepository
 
 
-class LoginPresenter(private var view: Login.View?) : Login.Presenter {
+class LoginPresenter(
+    private var view: Login.View?,
+    private val repository: LoginRepository
+    ) : Login.Presenter {
 
     override fun login(email: String, password: String) {
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        val isPasswordValid = password.length >= 6
+
+        if (!isEmailValid) {
             view?.displayEmailFailure(R.string.invalid_email)
         } else {
             view?.displayEmailFailure(null)
         }
 
-        if (password.length < 6) {
+        if (!isPasswordValid) {
             view?.displayPasswordFailure(R.string.invalid_password)
         } else {
             view?.displayPasswordFailure(null)
+        }
+
+        if (isEmailValid && isPasswordValid) {
+            view?.showProgress(true)
+
+            repository.login(email, password, object : LoginCallback {
+                override fun onSuccess() {
+                    view?.onUserAuthenticated()
+                }
+
+                override fun onFailure(message: String) {
+                    view?.onUserUnauthorized(message)
+                }
+
+                override fun onComplete() {
+                    view?.showProgress(false)
+                }
+
+            })
         }
     }
 
