@@ -14,8 +14,10 @@
             android:id="@+id/action_nav_login_to_nav_register_email"
             app:destination="@id/nav_register_email" />
         <action
-            android:id="@+id/action_nav_login_to_nav_profile"
-            app:destination="@id/nav_profile" />
+            android:id="@+id/action_nav_login_to_nav_home"
+            app:popUpTo="@id/nav_login"
+            app:popUpToInclusive="true"
+            app:destination="@id/nav_home" />
     </fragment>
 
     <fragment
