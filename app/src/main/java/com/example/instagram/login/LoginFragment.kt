@@ -12,6 +12,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.instagram.R
 import com.example.instagram.databinding.FragmentLoginBinding
+import com.example.instagram.di.DependencyInjector
 import com.example.instagram.login.data.FakeDataSource
 import com.example.instagram.login.data.LoginRepository
 import com.example.instagram.util.TxtWatcher
@@ -33,8 +34,7 @@ class LoginFragment : Fragment(), Login.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val repository = LoginRepository(FakeDataSource())
-        presenter = LoginPresenter(this, repository)
+        presenter = LoginPresenter(this, DependencyInjector.loginRepository())
         setListener()
     }
 
