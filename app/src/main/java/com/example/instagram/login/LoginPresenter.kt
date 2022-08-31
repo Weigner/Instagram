@@ -4,6 +4,7 @@ import android.util.Patterns
 import com.example.instagram.R
 import com.example.instagram.login.data.LoginCallback
 import com.example.instagram.login.data.LoginRepository
+import com.example.instagram.model.UserAuth
 
 
 class LoginPresenter(
@@ -31,7 +32,7 @@ class LoginPresenter(
             view?.showProgress(true)
 
             repository.login(email, password, object : LoginCallback {
-                override fun onSuccess() {
+                override fun onSuccess(userAuth: UserAuth) {
                     view?.onUserAuthenticated()
                 }
 
