@@ -5,7 +5,6 @@ Clone do aplicativo Instagram
 <ul>
   <li>Arquitetura MVP</li>
   <li>Navigation</li>
-  <li>SQLite</li>
   <li>Injeção de Dependência</li>
 </ul>
 <br>
