@@ -64,12 +64,20 @@ class LoginFragment : Fragment(), Login.View {
             btEnter.setOnClickListener {
                 presenter.login(etEmail.text.toString(), etPassword.text.toString())
             }
+
+            tvRegister.setOnClickListener {
+                goToRegister()
+            }
         }
     }
 
-    private fun goHome() {
+    private fun goToHome() {
         findNavController().navigate(R.id.action_nav_login_to_nav_home)
 
+    }
+
+    private fun goToRegister() {
+        findNavController().navigate(R.id.action_nav_login_to_nav_register_email)
     }
 
     override fun showProgress(enabled: Boolean) {
@@ -85,7 +93,7 @@ class LoginFragment : Fragment(), Login.View {
     }
 
     override fun onUserAuthenticated() {
-        goHome()
+        goToHome()
     }
 
     override fun onUserUnauthorized(message: String) {
