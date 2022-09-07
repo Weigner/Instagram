@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.instagram.R
 import com.example.instagram.databinding.FragmentRegisterEmailBinding
 import com.example.instagram.di.DependencyInjector
+import com.example.instagram.register.name_password.RegisterNamePasswordFragment.Companion.KEY_EMAIL
 import com.example.instagram.util.TxtWatcher
 
 class RegisterEmailFragment : Fragment(), RegisterEmail.View {
@@ -63,7 +64,9 @@ class RegisterEmailFragment : Fragment(), RegisterEmail.View {
     }
 
     override fun gotToRegisterNamePassword(email: String) {
-        findNavController().navigate(R.id.action_nav_register_email_to_nav_register_name_password)
+        val args = Bundle()
+        args.putString(KEY_EMAIL, email)
+        findNavController().navigate(R.id.action_nav_register_email_to_nav_register_name_password, args)
     }
 
 }

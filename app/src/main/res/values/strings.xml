@@ -30,6 +30,8 @@
     <string name="following">seguindo</string>
     <string name="invalid_email">Email inválido</string>
     <string name="invalid_password">Senha deve conter 6 caracteres</string>
+    <string name="invalid_name">Nome deve ter ao menos 3 caracteres</string>
+
 
     <string name="title_activity_register">RegisterActivity</string>
     <string name="action_settings">Settings</string>

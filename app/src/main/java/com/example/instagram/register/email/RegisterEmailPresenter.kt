@@ -2,14 +2,12 @@ package com.example.instagram.register.email
 
 import android.util.Patterns
 import com.example.instagram.R
-import com.example.instagram.login.data.LoginCallback
-import com.example.instagram.model.UserAuth
-import com.example.instagram.register.email.data.RegisterEmailCallback
-import com.example.instagram.register.email.data.RegisterEmailRepository
+import com.example.instagram.register.data.RegisterCallback
+import com.example.instagram.register.data.RegisterRepository
 
 class RegisterEmailPresenter(
     private var view: RegisterEmail.View?,
-    private val repository: RegisterEmailRepository
+    private val repository: RegisterRepository
 ) : RegisterEmail.Presenter {
     override fun create(email: String) {
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
@@ -23,7 +21,7 @@ class RegisterEmailPresenter(
         if (isEmailValid) {
             view?.showProgress(true)
 
-            repository.saveEmail(email, object : RegisterEmailCallback {
+            repository.saveEmail(email, object : RegisterCallback {
                 override fun onSuccess() {
                     view?.gotToRegisterNamePassword(email)
                 }

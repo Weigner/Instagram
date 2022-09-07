@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/nav_register_name_password"
-        android:name="com.example.instagram.register.RegisterNamePasswordFragment"
+        android:name="com.example.instagram.register.name_password.RegisterNamePasswordFragment"
         android:label="RegisterNamePasswordFragment"
         tools:layout="@layout/fragment_register_name_password">
         <action
