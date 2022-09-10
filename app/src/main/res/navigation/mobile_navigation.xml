@@ -59,7 +59,7 @@
             android:id="@+id/action_nav_register_upload_photo_to_nav_home"
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_login"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
