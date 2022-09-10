@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.instagram.R
 import com.example.instagram.util.CustomDialog
 import com.example.instagram.databinding.FragmentRegisterUploadPhotoBinding
+import com.example.instagram.util.hideKeyboard
 
 class RegisterUploadPhotoFragment : Fragment() {
 
@@ -25,18 +27,30 @@ class RegisterUploadPhotoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val customDialog = CustomDialog(requireContext())
-        customDialog.addButton(R.string.add_photo, R.string.gallery) {
-            when(it.id) {
-                R.string.add_photo -> {
 
-                }
-                R.string.gallery -> {
+        binding.btNext.isEnabled = true
+        binding.btNext.setOnClickListener {
+            val customDialog = CustomDialog(requireContext())
+            customDialog.addButton(R.string.add_photo, R.string.gallery) {
+                when(it.id) {
+                    R.string.add_photo -> {
 
+                    }
+                    R.string.gallery -> {
+
+                    }
                 }
             }
+            customDialog.show()
         }
 
-        customDialog.show()
+        binding.btJump.setOnClickListener {
+            goToHome()
+        }
+    }
+
+    private fun goToHome() {
+        findNavController().navigate(R.id.action_nav_register_upload_photo_to_nav_home)
+        //findNavController().navigateUp()
     }
 }

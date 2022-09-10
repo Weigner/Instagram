@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.instagram.R
 import com.example.instagram.databinding.FragmentRegisterNamePasswordBinding
 import com.example.instagram.di.DependencyInjector
+import com.example.instagram.register.RegisterWelcomeFragment.Companion.KEY_NAME
 import com.example.instagram.util.TxtWatcher
+import com.example.instagram.util.hideKeyboard
 import java.lang.IllegalArgumentException
 
 class RegisterNamePasswordFragment : Fragment(), RegisterNamePassword.View {
@@ -66,6 +70,12 @@ class RegisterNamePasswordFragment : Fragment(), RegisterNamePassword.View {
         super.onDestroy()
     }
 
+    private fun goToWelcome(name: String) {
+        val args = Bundle()
+        args.putString(KEY_NAME, name)
+        findNavController().navigate(R.id.action_nav_register_name_password_to_nav_register_welcome, args)
+    }
+
     companion object {
         const val KEY_EMAIL = "key_email"
     }
@@ -87,6 +97,6 @@ class RegisterNamePasswordFragment : Fragment(), RegisterNamePassword.View {
     }
 
     override fun onCreateSuccess(name: String) {
-        //TODO("Not yet implemented")
+        goToWelcome(name)
     }
 }

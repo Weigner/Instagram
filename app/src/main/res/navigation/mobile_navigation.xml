@@ -15,9 +15,9 @@
             app:destination="@id/nav_register_email" />
         <action
             android:id="@+id/action_nav_login_to_nav_home"
+            app:destination="@id/nav_home"
             app:popUpTo="@id/nav_login"
-            app:popUpToInclusive="true"
-            app:destination="@id/nav_home" />
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -36,7 +36,17 @@
         android:label="RegisterNamePasswordFragment"
         tools:layout="@layout/fragment_register_name_password">
         <action
-            android:id="@+id/action_nav_register_name_password_to_nav_register_upload_photo"
+            android:id="@+id/action_nav_register_name_password_to_nav_register_welcome"
+            app:destination="@id/nav_register_welcome" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_register_welcome"
+        android:name="com.example.instagram.register.RegisterWelcomeFragment"
+        android:label="RegisterWelcomeFragment"
+        tools:layout="@layout/fragment_register_welcome">
+        <action
+            android:id="@+id/action_nav_register_welcome_to_nav_register_upload_photo"
             app:destination="@id/nav_register_upload_photo" />
     </fragment>
 
@@ -46,15 +56,11 @@
         android:label="RegisterUploadPhotoFragment"
         tools:layout="@layout/fragment_register_upload_photo">
         <action
-            android:id="@+id/action_nav_register_upload_photo_to_nav_register_welcome"
-            app:destination="@id/nav_register_welcome" />
+            android:id="@+id/action_nav_register_upload_photo_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_login"
+            app:popUpToInclusive="false" />
     </fragment>
-
-    <fragment
-        android:id="@+id/nav_register_welcome"
-        android:name="com.example.instagram.register.RegisterWelcomeFragment"
-        android:label="RegisterWelcomeFragment"
-        tools:layout="@layout/fragment_register_welcome" />
 
     <fragment
         android:id="@+id/nav_profile"
