@@ -52,6 +52,7 @@ class RegisterNamePasswordFragment : Fragment(), RegisterNamePassword.View {
             etConfirmationPassword.addTextChangedListener(TxtWatcher { displayPasswordFailure(null) })
 
             btContinue.setOnClickListener {
+                hideKeyboard(view)
                 presenter.create(email,
                 etName.text.toString(), etPassword.text.toString(),
                 etConfirmationPassword.text.toString())

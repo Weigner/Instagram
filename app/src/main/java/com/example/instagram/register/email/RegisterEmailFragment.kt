@@ -11,6 +11,7 @@ import com.example.instagram.databinding.FragmentRegisterEmailBinding
 import com.example.instagram.di.DependencyInjector
 import com.example.instagram.register.name_password.RegisterNamePasswordFragment.Companion.KEY_EMAIL
 import com.example.instagram.util.TxtWatcher
+import com.example.instagram.util.hideKeyboard
 
 class RegisterEmailFragment : Fragment(), RegisterEmail.View {
 
@@ -41,6 +42,7 @@ class RegisterEmailFragment : Fragment(), RegisterEmail.View {
         })
 
         binding.btNext.setOnClickListener {
+            hideKeyboard(view)
             presenter.create(binding.etEmail.text.toString())
         }
     }
