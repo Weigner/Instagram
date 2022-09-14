@@ -60,6 +60,9 @@
             app:destination="@id/nav_home"
             app:popUpTo="@id/nav_login"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_register_upload_photo_to_imageCropperFragment"
+            app:destination="@id/nav_image_cropper" />
     </fragment>
 
     <fragment
@@ -88,4 +91,8 @@
         android:name="com.example.instagram.camera.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/nav_image_cropper"
+        android:name="com.example.instagram.ImageCropperFragment"
+        android:label="ImageCropperFragment" />
 </navigation>

@@ -99,6 +99,11 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                     binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
                 }
+                R.id.nav_image_cropper -> {
+                    supportActionBar?.hide()
+                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                }
                 else -> {
                     supportActionBar?.show()
                     binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)

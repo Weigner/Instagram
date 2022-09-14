@@ -48,7 +48,7 @@
     <string name="follow">Seguir</string>
     <string name="logout">Deseja sair?</string>
     <string name="logout_action">Sair</string>
-    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancelar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
