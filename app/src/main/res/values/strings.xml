@@ -5,11 +5,11 @@
     <string name="hint_password">Senha</string>
     <string name="text_bt_enter">Entrar</string>
     <string name="or">ou</string>
-    <string name="not_have_account">Não tem uma conta? <b><font color="#002b57">Cadastre-se</font></b></string>
+    <string name="not_have_account">Não tem uma conta? <b>Cadastre-se</b></string>
     <string name="text_login_facebook">Entrar com o Facebook</string>
 
     <string name="text_bt_next">Avançar</string>
-    <string name="already_has_account">Já tem uma conta? <b><font color="#002b57">Faça login.</font></b></string>
+    <string name="already_has_account">Já tem uma conta? <b>Faça login.</b></string>
     <string name="hint_name">Nome</string>
     <string name="hint_password_confirm">Confirmar senha</string>
     <string name="text_bt_continue">Continuar</string>
