@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.instagram"
+        applicationId "com.weigner.instagram"
         minSdk 21
         targetSdk 30
         versionCode 1

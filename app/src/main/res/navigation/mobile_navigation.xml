@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_login"
-        android:name="com.example.instagram.login.LoginFragment"
+        android:name="com.weigner.instagram.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/nav_register_email"
-        android:name="com.example.instagram.register.email.RegisterEmailFragment"
+        android:name="com.weigner.instagram.register.email.RegisterEmailFragment"
         android:label="fragment_register_email"
         tools:layout="@layout/fragment_register_email">
         <action
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/nav_register_name_password"
-        android:name="com.example.instagram.register.name_password.RegisterNamePasswordFragment"
+        android:name="com.weigner.instagram.register.name_password.RegisterNamePasswordFragment"
         android:label="RegisterNamePasswordFragment"
         tools:layout="@layout/fragment_register_name_password">
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/nav_register_welcome"
-        android:name="com.example.instagram.register.RegisterWelcomeFragment"
+        android:name="com.weigner.instagram.register.RegisterWelcomeFragment"
         android:label="RegisterWelcomeFragment"
         tools:layout="@layout/fragment_register_welcome">
         <action
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/nav_register_upload_photo"
-        android:name="com.example.instagram.register.RegisterUploadPhotoFragment"
+        android:name="com.weigner.instagram.register.RegisterUploadPhotoFragment"
         android:label="RegisterUploadPhotoFragment"
         tools:layout="@layout/fragment_register_upload_photo">
         <action
@@ -67,32 +67,32 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.instagram.profile.ProfileFragment"
+        android:name="com.weigner.instagram.profile.ProfileFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.instagram.home.HomeFragment"
+        android:name="com.weigner.instagram.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.instagram.search.SearchFragment"
+        android:name="com.weigner.instagram.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/nav_camera"
-        android:name="com.example.instagram.camera.CameraFragment"
+        android:name="com.weigner.instagram.camera.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.instagram.camera.GalleryFragment"
+        android:name="com.weigner.instagram.camera.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery" />
     <fragment
         android:id="@+id/nav_image_cropper"
-        android:name="com.example.instagram.ImageCropperFragment"
+        android:name="com.weigner.instagram.ImageCropperFragment"
         android:label="ImageCropperFragment" />
 </navigation>

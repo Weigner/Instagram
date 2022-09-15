@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.instagram">
+    package="com.weigner.instagram">
 
     <uses-feature android:name="android.hardware.camera" android:required="true" />
     <queries>
@@ -31,7 +31,7 @@
         </activity>
 
         <provider
-            android:authorities="com.example.instagram.fileprovider"
+            android:authorities="com.weigner.instagram.fileprovider"
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
