@@ -1,8 +1,10 @@
 package com.weigner.instagram.register.data
 
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import com.weigner.instagram.model.Database
+import com.weigner.instagram.model.Photo
 import com.weigner.instagram.model.UserAuth
 import java.util.*
 
@@ -39,6 +41,27 @@ class FakeRegisterDataSource : RegisterDataSource {
                     callback.onSuccess()
                 } else {
                     callback.onFailure("Erro para cadastrar usuario")
+                }
+            }
+            callback.onComplete()
+        }, 2000)
+    }
+
+    override fun updateUser(photoUri: Uri, callback: RegisterCallback) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            val userAuth = Database.sessionAuth
+
+            if (userAuth == null) {
+                callback.onFailure("Usuário não encontrado")
+            } else {
+                val newPhoto = Photo(userAuth.uuid, photoUri)
+
+                val created = Database.photos.add(newPhoto)
+
+                if (created) {
+                    callback.onSuccess()
+                } else {
+                    callback.onFailure("Erro interno no servidor.")
                 }
             }
             callback.onComplete()

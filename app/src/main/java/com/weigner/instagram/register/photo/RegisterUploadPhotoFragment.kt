@@ -1,10 +1,8 @@
-package com.weigner.instagram.register
+package com.weigner.instagram.register.photo
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -13,27 +11,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.weigner.instagram.ImageCropperFragment
 import com.weigner.instagram.ImageCropperFragment.Companion.KEY_URI
-import com.weigner.instagram.MainActivity
 import com.weigner.instagram.R
 import com.weigner.instagram.util.CustomDialog
 import com.weigner.instagram.databinding.FragmentRegisterUploadPhotoBinding
-import com.weigner.instagram.util.hideKeyboard
+import com.weigner.instagram.di.DependencyInjector
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RegisterUploadPhotoFragment : Fragment() {
+class RegisterUploadPhotoFragment : Fragment(), RegisterPhoto.View {
 
     private var _binding: FragmentRegisterUploadPhotoBinding? = null
     private val binding get() = _binding!!
+
+    override lateinit var presenter: RegisterPhoto.Presenter
 
     private lateinit var currentPhotoUri: Uri
 
@@ -70,6 +69,9 @@ class RegisterUploadPhotoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val repository = DependencyInjector.registerEmailRepository()
+
+        presenter = RegisterPhotoPresenter(this, repository)
 
         binding.btNext.isEnabled = true
         binding.btNext.setOnClickListener {
@@ -79,6 +81,24 @@ class RegisterUploadPhotoFragment : Fragment() {
         binding.btJump.setOnClickListener {
             goToHome()
         }
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        presenter.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun showProgress(enabled: Boolean) {
+        binding.btNext.showProgress(enabled)
+    }
+
+    override fun onUpdateFailure(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onUpdateSuccess() {
+        goToHome()
     }
 
     private fun showDialog() {
@@ -155,5 +175,6 @@ class RegisterUploadPhotoFragment : Fragment() {
         if (bitmap != null) {
            binding.ivProfile.setImageBitmap(bitmap)
         }
+        presenter.updateUser(currentPhotoUri)
     }
 }

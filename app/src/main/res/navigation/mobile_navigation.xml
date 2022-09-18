@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/nav_register_upload_photo"
-        android:name="com.weigner.instagram.register.RegisterUploadPhotoFragment"
+        android:name="com.weigner.instagram.register.photo.RegisterUploadPhotoFragment"
         android:label="RegisterUploadPhotoFragment"
         tools:layout="@layout/fragment_register_upload_photo">
         <action
