@@ -94,5 +94,6 @@
     <fragment
         android:id="@+id/nav_image_cropper"
         android:name="com.weigner.instagram.ImageCropperFragment"
-        android:label="ImageCropperFragment" />
+        android:label="ImageCropperFragment"
+        tools:layout="@layout/fragment_image_cropper" />
 </navigation>
