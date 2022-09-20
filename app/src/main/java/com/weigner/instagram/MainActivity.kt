@@ -5,14 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.weigner.instagram.databinding.ActivityMainBinding
-import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,10 +54,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configNavigation() {
-       // val navView: NavigationView = binding.navView
+        // val navView: NavigationView = binding.navView
         navController = findNavController(R.id.nav_host_fragment_content_main)
 
-       // navView.setupWithNavController(navController)
+        // navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             //title = destination.label
@@ -71,47 +68,39 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.nav_login -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_email -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_name_password -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_welcome -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_register_upload_photo -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 R.id.nav_profile -> {
                     supportActionBar?.show()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+                    binding.bottomNav.visibility = View.VISIBLE
                 }
                 R.id.nav_camera -> {
                     supportActionBar?.show()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+                    binding.bottomNav.visibility = View.VISIBLE
                 }
                 R.id.nav_image_cropper -> {
                     supportActionBar?.hide()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.GONE
+                    binding.bottomNav.visibility = View.GONE
                 }
                 else -> {
                     supportActionBar?.show()
-                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+                    binding.bottomNav.visibility = View.VISIBLE
 //                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
             }
@@ -124,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
 
         navController = navHostFragment.navController
-        NavigationUI.setupWithNavController(binding.appBarMain.contentMain.bottomNav, navController)
+        NavigationUI.setupWithNavController(binding.bottomNav, navController)
     }
 
     /* override fun onSupportNavigateUp(): Boolean {
