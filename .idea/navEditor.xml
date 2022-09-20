@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-5" />
-                            <option name="y" value="1344" />
+                            <option name="x" value="847" />
+                            <option name="y" value="931" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -39,6 +39,18 @@
                           <Point>
                             <option name="x" value="238" />
                             <option name="y" value="487" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="nav_image_cropper">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1332" />
+                            <option name="y" value="-180" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -76,7 +88,7 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="284" />
-                            <option name="y" value="905" />
+                            <option name="y" value="969" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -135,6 +147,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_nav_register_upload_photo_to_imageCropperFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_nav_register_upload_photo_to_nav_home">
                               <value>
                                 <LayoutPositions />
@@ -171,8 +188,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="520" />
-                            <option name="y" value="776" />
+                            <option name="x" value="629" />
+                            <option name="y" value="918" />
                           </Point>
                         </option>
                       </LayoutPositions>

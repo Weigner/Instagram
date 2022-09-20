@@ -8,6 +8,8 @@ import android.view.WindowInsetsController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.weigner.instagram.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
+
+        initNavigation()
 
         //val drawerLayout: DrawerLayout = binding.drawerLayout
 
@@ -52,15 +57,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configNavigation() {
-        val navView: NavigationView = binding.navView
+       // val navView: NavigationView = binding.navView
         navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        navView.setupWithNavController(navController)
+       // navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             //title = destination.label
             //title = ""
-            binding.appBarMain.toolbar.title = title
+            //binding.appBarMain.toolbar.title = title
 
             // o método abaixo serve para incluir ou remover a navegação segundo o fragment carregado
             when (destination.id) {
@@ -106,11 +111,20 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     supportActionBar?.show()
-                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                    binding.appBarMain.contentMain.bottomNav.visibility = View.VISIBLE
+//                    binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
             }
         }
 
+    }
+
+    private fun initNavigation() {
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+
+        navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(binding.appBarMain.contentMain.bottomNav, navController)
     }
 
     /* override fun onSupportNavigateUp(): Boolean {

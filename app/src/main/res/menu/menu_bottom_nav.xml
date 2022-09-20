@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menu_bottom_home"
+    <item android:id="@+id/nav_home"
         android:icon="@drawable/ic_insta_home"
         android:title="@string/home" />
 
-    <item android:id="@+id/menu_bottom_search"
+    <item android:id="@+id/nav_search"
         android:icon="@drawable/ic_insta_search"
         android:title="@string/search" />
 
-    <item android:id="@+id/menu_bottom_add"
+    <item android:id="@+id/nav_camera"
         android:icon="@drawable/ic_insta_add"
         android:title="@string/add_photo" />
 
@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_insta_heart"
         android:title="favorito" />
 
-    <item android:id="@+id/menu_bottom_profile"
+    <item android:id="@+id/nav_profile"
         android:icon="@drawable/ic_insta_profile"
         android:title="perfil" />
 
