@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.android.material.appbar.AppBarLayout
 import com.weigner.instagram.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -63,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             //title = destination.label
             //title = ""
             //binding.appBarMain.toolbar.title = title
+            //
 
             // o método abaixo serve para incluir ou remover a navegação segundo o fragment carregado
             when (destination.id) {
@@ -86,13 +89,25 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.hide()
                     binding.bottomNav.visibility = View.GONE
                 }
-                R.id.nav_profile -> {
+                R.id.nav_home -> {
                     supportActionBar?.show()
                     binding.bottomNav.visibility = View.VISIBLE
+                    setScrollToolbar(false)
+                }
+                R.id.nav_search -> {
+                    supportActionBar?.show()
+                    binding.bottomNav.visibility = View.VISIBLE
+                    setScrollToolbar(false)
                 }
                 R.id.nav_camera -> {
                     supportActionBar?.show()
                     binding.bottomNav.visibility = View.VISIBLE
+                    setScrollToolbar(false)
+                }
+                R.id.nav_profile -> {
+                    supportActionBar?.show()
+                    binding.bottomNav.visibility = View.VISIBLE
+                    setScrollToolbar()
                 }
                 R.id.nav_image_cropper -> {
                     supportActionBar?.hide()
@@ -114,6 +129,22 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNav, navController)
+    }
+
+
+    private fun setScrollToolbar(enabled: Boolean = true) {
+        val params = binding.appBarMain.toolbar.layoutParams as AppBarLayout.LayoutParams
+        val coordinatorParams =
+            binding.appBarMain.appBar.layoutParams as CoordinatorLayout.LayoutParams
+
+        if (enabled) {
+            params.scrollFlags =
+                AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL or AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
+        } else {
+            params.scrollFlags = 0
+            coordinatorParams.behavior = null
+            binding.appBarMain.appBar.layoutParams = coordinatorParams
+        }
     }
 
     /* override fun onSupportNavigateUp(): Boolean {
