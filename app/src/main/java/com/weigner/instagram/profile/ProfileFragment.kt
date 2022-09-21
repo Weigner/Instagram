@@ -1,19 +1,24 @@
 package com.weigner.instagram.profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.weigner.instagram.R
 import com.weigner.instagram.databinding.FragmentProfileBinding
-import com.weigner.instagram.databinding.ItemProfileGridBinding
+import com.weigner.instagram.model.Post
+import com.weigner.instagram.model.UserAuth
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), Profile.View {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    override lateinit var presenter: Profile.Presenter
+
+    private val adapter = PostAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +36,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.rvPhotos.layoutManager = GridLayoutManager(requireContext(), 3)
-        binding.rvPhotos.adapter = PostAdapter()
+        binding.rvPhotos.adapter = adapter
+
+        presenter.fetchUserProfile()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -41,28 +47,36 @@ class ProfileFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private class PostAdapter() : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+    override fun showProgress(enabled: Boolean) {
+        binding.pb.visibility = if (enabled) View.VISIBLE else View.GONE
+    }
 
-        private var _binding: ItemProfileGridBinding? = null
-        private val binding get() = _binding!!
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-            _binding = ItemProfileGridBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return PostViewHolder(binding)
+    override fun displayUserProfile(userAuth: UserAuth) {
+        binding.apply {
+            tvPostsCount.text = userAuth.postCount.toString()
+            tvFollowingCount.text = userAuth.followingCount.toString()
+            tvFollowers.text = userAuth.followersCount.toString()
+            tvUserName.text = userAuth.name
+            tvBio.text = "TODO"// TODO userAuth.bio
+            presenter.fetchUserPosts()
         }
+    }
 
-        override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-            holder.bind(R.drawable.ic_insta_add)
-        }
+    override fun displayRequestFailure(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    }
 
-        override fun getItemCount(): Int {
-            return 30
-        }
+    override fun displayEmptyPosts() {
+        binding.tvEmpty.visibility = View.VISIBLE
+        binding.rvPhotos.visibility = View.GONE
+    }
 
-        private class PostViewHolder(val binding: ItemProfileGridBinding) : RecyclerView.ViewHolder(binding.root) {
-            fun bind(image: Int) {
-                binding.ivGrid.setImageResource(image)
-            }
-        }
+    @SuppressLint("NotifyDataSetChanged")
+    override fun displayFullPosts(posts: List<Post>) {
+        binding.tvEmpty.visibility = View.GONE
+        binding.rvPhotos.visibility = View.VISIBLE
+        // TODO Atualizar adapter
+        adapter.items = posts
+        adapter.notifyDataSetChanged()
     }
 }
