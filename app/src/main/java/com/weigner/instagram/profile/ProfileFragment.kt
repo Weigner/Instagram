@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.weigner.instagram.R
 import com.weigner.instagram.databinding.FragmentProfileBinding
+import com.weigner.instagram.di.DependencyInjector
 import com.weigner.instagram.model.Post
 import com.weigner.instagram.model.UserAuth
 
@@ -39,6 +40,9 @@ class ProfileFragment : Fragment(), Profile.View {
         binding.rvPhotos.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rvPhotos.adapter = adapter
 
+        val repository = DependencyInjector.profileRepository()
+        presenter = ProfilePresenter(this, repository)
+
         presenter.fetchUserProfile()
     }
 
@@ -55,7 +59,7 @@ class ProfileFragment : Fragment(), Profile.View {
         binding.apply {
             tvPostsCount.text = userAuth.postCount.toString()
             tvFollowingCount.text = userAuth.followingCount.toString()
-            tvFollowers.text = userAuth.followersCount.toString()
+            tvFollowersCount.text = userAuth.followersCount.toString()
             tvUserName.text = userAuth.name
             tvBio.text = "TODO"// TODO userAuth.bio
             presenter.fetchUserPosts()
